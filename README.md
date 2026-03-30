@@ -6,6 +6,14 @@ Static HTML/CSS site with wine **rankings** and winery **reviews** driven by JSO
 
 Intended GitHub repository name: **`MarcusFisico`**.
 
+### Push to your GitHub (one-time)
+
+1. Install GitHub CLI if needed: `winget install GitHub.cli`
+2. Log in: `gh auth login`
+3. From this folder, run: `powershell -ExecutionPolicy Bypass -File scripts/push-to-github.ps1`
+
+That creates **`MarcusFisico`** on your account and pushes **`main`**. Then follow [DEPLOY.md](DEPLOY.md) for Netlify.
+
 ## Local preview
 
 ```bash
