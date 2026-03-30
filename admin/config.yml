@@ -9,7 +9,7 @@ site_url: https://marcus-fisico.netlify.app
 display_url: https://marcus-fisico.netlify.app
 
 media_folder: assets/uploads
-public_folder: assets/uploads
+public_folder: /assets/uploads
 
 collections:
   - name: rankings
