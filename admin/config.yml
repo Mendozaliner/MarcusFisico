@@ -6,7 +6,8 @@ backend:
   repo: Mendozaliner/MarcusFisico
   branch: main
   base_url: https://api.netlify.com
-  auth_endpoint: oauth
+  # Must be "auth" (→ https://api.netlify.com/auth), not "oauth" — wrong path breaks GitHub login
+  auth_endpoint: auth
 
 site_url: https://reliable-youtiao-2f57d2.netlify.app
 display_url: https://reliable-youtiao-2f57d2.netlify.app

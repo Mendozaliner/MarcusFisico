@@ -40,4 +40,21 @@ On GitHub: **MarcusFisico** → **Settings** → **Collaborators** → add his G
 
 ---
 
-Official references: [Decap GitHub backend](https://decapcms.org/docs/github-backend/), [Netlify OAuth](https://docs.netlify.com/security/secure-access-to-sites/oauth-provider-tokens/).
+## If “Login with GitHub” still errors
+
+1. **GitHub OAuth app → Authorization callback URL** must be exactly:  
+   `https://api.netlify.com/auth/done`  
+   (not your `.netlify.app` URL.)
+
+2. **Netlify → Project configuration → Access & security → OAuth → GitHub**  
+   Client ID and Client secret must be saved **on this same site** (reliable-youtiao-2f57d2).
+
+3. **Hard refresh** `/admin/` after deploy (Ctrl+F5) so the browser loads the new `config.yml`.
+
+4. **Popup blockers** — allow popups for your Netlify domain.
+
+5. **`redirect_uri_mismatch` in GitHub** — almost always the callback URL in step 1.
+
+---
+
+Official references: [Decap backends (auth_endpoint)](https://decapcms.org/docs/backends-overview/), [Netlify OAuth](https://docs.netlify.com/security/secure-access-to-sites/oauth-provider-tokens/).
