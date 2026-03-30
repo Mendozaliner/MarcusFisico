@@ -1,0 +1,59 @@
+# Replace site_url and display_url below with your real Netlify URL after you create the site
+# (e.g. https://marcus-fisico.netlify.app). Required for Netlify Identity + Git Gateway.
+
+backend:
+  name: git-gateway
+  branch: main
+
+site_url: https://marcus-fisico.netlify.app
+display_url: https://marcus-fisico.netlify.app
+
+media_folder: assets/uploads
+public_folder: assets/uploads
+
+collections:
+  - name: rankings
+    label: Wine rankings
+    files:
+      - label: Rankings table
+        name: rankings
+        file: content/rankings.json
+        fields:
+          - label: Wines (the site sorts by score, highest first)
+            name: items
+            widget: list
+            summary: "{{fields.wine}} ({{fields.score}})"
+            fields:
+              - { label: Wine, name: wine, widget: string }
+              - { label: Notes, name: notes, widget: text }
+              - { label: Pairings, name: pairings, widget: text }
+              - label: Score
+                name: score
+                widget: number
+                value_type: int
+                min: 0
+                max: 100
+
+  - name: reviews
+    label: Winery reviews
+    files:
+      - label: All reviews
+        name: reviews
+        file: content/reviews.json
+        fields:
+          - label: Reviews (order shown top to bottom on the page)
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Meta line
+                name: meta
+                widget: string
+                hint: "e.g. Okanagan · March 2026"
+              - { label: Body, name: body, widget: text }
+              - label: URL slug (optional)
+                name: slug
+                widget: string
+                required: false
+                hint: "Short id for anchor links; leave blank to auto-generate from title"

@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "wine": "2021 Pinot Noir — Benchland Collective",
+      "notes": "Red cherry, dried herb, fine tannins; long finish.",
+      "pairings": "Duck breast, mushroom risotto, aged cheddar.",
+      "score": 94
+    },
+    {
+      "wine": "2022 Chardonnay — Lakeshore Road Estate",
+      "notes": "Stone fruit, subtle oak, crisp acid line.",
+      "pairings": "Roast chicken, scallops, creamy soups.",
+      "score": 92
+    },
+    {
+      "wine": "NV Sparkling — Riverside Cellars",
+      "notes": "Brioche, green apple, lively mousse.",
+      "pairings": "Oysters, sushi, soft cheeses.",
+      "score": 89
+    },
+    {
+      "wine": "2020 Merlot — Valley View",
+      "notes": "Plum, cocoa; medium body, slightly short finish.",
+      "pairings": "Meatloaf, tomato-based pasta.",
+      "score": 86
+    },
+    {
+      "wine": "2023 Rosé — Generic Lake Label",
+      "notes": "Simple strawberry; fine for patio, lacks depth.",
+      "pairings": "Salads, light appetizers.",
+      "score": 78
+    }
+  ]
+}

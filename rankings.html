@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Weekly wine rankings by Marcus Fisico — scores, notes, pairings." />
+    <title>Wine rankings — Marcus Fisico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="subpage-header">
+      <div class="subpage-header-inner">
+        <div class="site-title">
+          <a href="index.html" aria-label="Marcus Fisico — home">MARCUS FISICO</a>
+        </div>
+        <nav class="subpage-nav" aria-label="Site">
+          <a href="index.html">Home</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <div class="checkerboard" aria-hidden="true"></div>
+
+    <main class="subpage-main subpage-main--wide" id="main">
+      <p class="section-kicker">Weekly</p>
+      <h1 class="section-title">WINE RANKINGS</h1>
+      <p class="section-lead">
+        Ordered best to worst by score—tasting notes and pairings for each bottle.
+      </p>
+
+      <div class="rankings-table-wrap">
+        <table class="rankings-table">
+          <caption class="visually-hidden">
+            Wines ranked from highest to lowest score
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col" class="col-rank">#</th>
+              <th scope="col">Wine</th>
+              <th scope="col">Notes</th>
+              <th scope="col">Pairings</th>
+              <th scope="col" class="col-score">Score</th>
+            </tr>
+          </thead>
+          <tbody id="rankings-tbody">
+            <tr>
+              <td colspan="5">Loading rankings…</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <script src="js/rankings-page.js"></script>
+  </body>
+</html>

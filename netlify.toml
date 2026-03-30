@@ -1,0 +1,8 @@
+# Static site — no build step. Connect this repo in Netlify and publish from the repo root.
+
+[build]
+  command = "true"
+  publish = "."
+
+[build.processing]
+  skip_processing = false
