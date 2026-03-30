@@ -5,8 +5,8 @@ backend:
   name: git-gateway
   branch: main
 
-site_url: https://marcus-fisico.netlify.app
-display_url: https://marcus-fisico.netlify.app
+site_url: https://reliable-youtiao-2f57d2.netlify.app
+display_url: https://reliable-youtiao-2f57d2.netlify.app
 
 media_folder: assets/uploads
 public_folder: /assets/uploads
