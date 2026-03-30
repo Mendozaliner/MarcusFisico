@@ -1,12 +1,6 @@
 {
   "items": [
     {
-      "wine": "2021 Pinot Noir — Benchland Collective",
-      "notes": "Red cherry, dried herb, fine tannins; long finish.",
-      "pairings": "Duck breast, mushroom risotto, aged cheddar.",
-      "score": 94
-    },
-    {
       "wine": "2022 Chardonnay — Lakeshore Road Estate",
       "notes": "Stone fruit, subtle oak, crisp acid line.",
       "pairings": "Roast chicken, scallops, creamy soups.",
@@ -29,6 +23,12 @@
       "notes": "Simple strawberry; fine for patio, lacks depth.",
       "pairings": "Salads, light appetizers.",
       "score": 78
+    },
+    {
+      "wine": "Mission Hill",
+      "notes": "tech",
+      "pairings": "beef",
+      "score": 6
     }
   ]
 }
