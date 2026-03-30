@@ -34,9 +34,24 @@ Go to: **https://reliable-youtiao-2f57d2.netlify.app/admin/**
 
 Click **Login with GitHub**. Use the GitHub account that has **write access** to **Mendozaliner/MarcusFisico**.
 
-## 4. If Marcus should edit too
+## 4. Give Marcus access (required for him to use `/admin/`)
 
-On GitHub: **MarcusFisico** → **Settings** → **Collaborators** → add his GitHub username with **Write** access. He will **Login with GitHub** the same way.
+The CMS logs in with **GitHub** and **commits** to the repo. If Marcus’s GitHub user is not on the repo, GitHub will say he **does not have access**.
+
+**You (repo owner) do this:**
+
+1. Open **[github.com/Mendozaliner/MarcusFisico](https://github.com/Mendozaliner/MarcusFisico)** while logged in as **Mendozaliner**.
+2. **Settings** → **Collaborators** (under “Access” in the left sidebar).
+3. **Add people** → type Marcus’s **GitHub username** or the **email** tied to his GitHub account.
+4. Choose role **Write** (not only Read). **Add [name] to this repository**.
+5. Marcus must **accept the invitation** (GitHub email or **github.com** notifications).
+
+**Marcus then:**
+
+1. Uses a **GitHub account that matches the invite** (same username/email he accepted).
+2. Goes to **https://reliable-youtiao-2f57d2.netlify.app/admin/** → **Login with GitHub** → authorize the app if asked.
+
+If he **does not have a GitHub account**, he needs to **[create one](https://github.com/signup)** first, then you add **that** username as a collaborator with **Write**.
 
 ---
 
