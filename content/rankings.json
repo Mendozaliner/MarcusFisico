@@ -1,34 +1,3 @@
 {
-  "items": [
-    {
-      "wine": "2022 Chardonnay — Lakeshore Road Estate",
-      "notes": "Stone fruit, subtle oak, crisp acid line.",
-      "pairings": "Roast chicken, scallops, creamy soups.",
-      "score": 92
-    },
-    {
-      "wine": "NV Sparkling — Riverside Cellars",
-      "notes": "Brioche, green apple, lively mousse.",
-      "pairings": "Oysters, sushi, soft cheeses.",
-      "score": 89
-    },
-    {
-      "wine": "2020 Merlot — Valley View",
-      "notes": "Plum, cocoa; medium body, slightly short finish.",
-      "pairings": "Meatloaf, tomato-based pasta.",
-      "score": 86
-    },
-    {
-      "wine": "2023 Rosé — Generic Lake Label",
-      "notes": "Simple strawberry; fine for patio, lacks depth.",
-      "pairings": "Salads, light appetizers.",
-      "score": 78
-    },
-    {
-      "wine": "Mission Hill",
-      "notes": "tech",
-      "pairings": "beef",
-      "score": 6
-    }
-  ]
+  "items": []
 }
