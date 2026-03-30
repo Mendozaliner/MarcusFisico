@@ -1,0 +1,36 @@
+================================================================================
+FIX: Netlify error "git ref refs/heads/main does not exist"
+================================================================================
+
+OPTION A — Fastest (if your GitHub repo uses "master" not "main")
+--------------------------------------------------------------------------------
+1. Open https://app.netlify.com and click your site.
+2. Site configuration  →  Build & deploy  →  scroll to "Continuous deployment"
+   (or "Branches and deploy contexts").
+3. Find "Production branch" / "Branch to deploy".
+4. Change it from "main" to "master" (or whatever branch you see on GitHub).
+5. Save.
+6. Go to Deploys → "Trigger deploy" → "Clear cache and deploy site".
+
+
+OPTION B — Make GitHub use "main" (matches Netlify default)
+--------------------------------------------------------------------------------
+1. Open your MarcusFisico repo on GitHub.
+2. Click the branch dropdown (top left of file list). Note the branch name.
+
+   If you see ONLY "master":
+   - Click "Branches" (or Settings → General → Default branch).
+   - Rename "master" to "main" if GitHub offers it, OR use Option A above.
+
+3. On your computer, open PowerShell in the project folder and run:
+
+   powershell -ExecutionPolicy Bypass -File scripts\set-remote-and-push-main.ps1
+
+   When asked, type your GitHub username (the part in github.com/USERNAME/MarcusFisico).
+
+4. After push succeeds, in Netlify set Production branch to: main
+5. Trigger deploy again (Clear cache and deploy).
+
+
+Your GitHub repo URL must be:  https://github.com/YOUR_USERNAME/MarcusFisico
+================================================================================
