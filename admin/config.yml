@@ -1,9 +1,12 @@
-# Replace site_url and display_url below with your real Netlify URL after you create the site
-# (e.g. https://marcus-fisico.netlify.app). Required for Netlify Identity + Git Gateway.
+# Uses GitHub login via Netlify’s OAuth proxy — no Netlify Identity / Git Gateway required.
+# Setup: ADMIN-OAUTH.md in the repo root.
 
 backend:
-  name: git-gateway
+  name: github
+  repo: Mendozaliner/MarcusFisico
   branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: oauth
 
 site_url: https://reliable-youtiao-2f57d2.netlify.app
 display_url: https://reliable-youtiao-2f57d2.netlify.app
