@@ -19,8 +19,7 @@
 
   function formatScoreDisplay(s) {
     if (s == null) return "—";
-    var t = (Math.round(s * 10) / 10).toFixed(1);
-    return t + "/5";
+    return Math.round(s) + "/5";
   }
 
   function averageScores(item) {
@@ -33,7 +32,7 @@
   }
 
   function formatAvg(avg) {
-    return (Math.round(avg * 10) / 10).toFixed(1);
+    return String(Math.round(avg));
   }
 
   function bigStars(avg) {
@@ -63,7 +62,18 @@
   function normalizePhotoUrl(u) {
     var s = String(u || "").trim();
     if (!s) return "";
-    return s;
+    s = s.replace(/\\/g, "/");
+    if (/^https?:\/\//i.test(s)) return s;
+    var leading = s.indexOf("/") === 0;
+    var parts = s.split("/").filter(function (p) {
+      return p.length;
+    });
+    var path = parts
+      .map(function (seg) {
+        return encodeURIComponent(seg);
+      })
+      .join("/");
+    return leading ? "/" + path : path;
   }
 
   fetch("content/reviews.json")
@@ -157,7 +167,10 @@
         numEl.className = "review-overall-num";
         if (avg != null) {
           starsEl.textContent = bigStars(avg);
-          starsEl.setAttribute("aria-label", "Overall " + formatAvg(avg) + " out of 5");
+          starsEl.setAttribute(
+            "aria-label",
+            "Overall " + Math.round(avg) + " out of 5"
+          );
           numEl.textContent = formatAvg(avg);
         } else {
           starsEl.textContent = "—";
