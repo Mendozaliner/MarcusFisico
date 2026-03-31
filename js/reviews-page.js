@@ -98,7 +98,7 @@
       })
       .filter(Boolean);
 
-    if (fromList.length) return fromList.slice(0, 3);
+    if (fromList.length) return fromList;
 
     // Backward compatibility for legacy schema.
     return [

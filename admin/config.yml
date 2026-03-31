@@ -113,21 +113,20 @@ collections:
                 max: 5
                 step: 0.1
               - { label: Body, name: body, widget: text }
-              - label: Photo 1
-                name: photo1
-                widget: image
+              - label: Photos
+                name: photos
+                widget: list
                 required: false
-                hint: "Main photo. Use a unique filename to avoid replacement prompts."
-              - label: Photo 2
-                name: photo2
-                widget: image
-                required: false
-                hint: "Second independent photo. Use a different filename from Photo 1."
-              - label: Photo 3
-                name: photo3
-                widget: image
-                required: false
-                hint: "Third independent photo. Use a different filename from Photos 1/2."
+                summary: "{{fields.image}}"
+                hint: "Add as many photos as you want. Drag/drop, choose files, or paste into the media library dialog."
+                fields:
+                  - label: Image
+                    name: image
+                    widget: image
+                    required: true
+                    media_library:
+                      config:
+                        multiple: true
               - label: URL slug (optional)
                 name: slug
                 widget: string
