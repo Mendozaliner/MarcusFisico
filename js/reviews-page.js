@@ -64,6 +64,13 @@
     if (!s) return "";
     s = s.replace(/\\/g, "/");
     if (/^https?:\/\//i.test(s)) return s;
+    function repoBasePath() {
+      var parts = location.pathname.split("/").filter(Boolean);
+      if (!parts.length) return "";
+      // On project pages, first segment is the repo name (no dot).
+      if (parts[0].indexOf(".") === -1) return "/" + parts[0];
+      return "";
+    }
     var leading = s.indexOf("/") === 0;
     var parts = s.split("/").filter(function (p) {
       return p.length;
@@ -73,14 +80,43 @@
         return encodeURIComponent(seg);
       })
       .join("/");
-    return leading ? "/" + path : path;
+    if (leading) {
+      return repoBasePath() + "/" + path;
+    }
+    return path;
   }
 
-  fetch("content/reviews.json")
-    .then(function (r) {
-      if (!r.ok) throw new Error("bad response");
-      return r.json();
-    })
+  function loadJsonWithFallback(path) {
+    var stamp = Date.now();
+    var urls = [];
+    var normalized = String(path || "").replace(/^\/+/, "");
+    if (!normalized) return Promise.reject(new Error("missing path"));
+
+    urls.push(normalized);
+    urls.push("./" + normalized);
+    urls.push("/" + normalized);
+
+    // GitHub Pages project sites are hosted under /<repo>/.
+    var parts = location.pathname.split("/").filter(Boolean);
+    if (parts.length > 0) {
+      urls.push("/" + parts[0] + "/" + normalized);
+    }
+
+    function tryAt(i) {
+      if (i >= urls.length) return Promise.reject(new Error("not found"));
+      var u = urls[i] + (urls[i].indexOf("?") === -1 ? "?" : "&") + "v=" + stamp;
+      return fetch(u, { cache: "no-store" }).then(function (r) {
+        if (!r.ok) throw new Error("bad response");
+        return r.json();
+      }).catch(function () {
+        return tryAt(i + 1);
+      });
+    }
+
+    return tryAt(0);
+  }
+
+  loadJsonWithFallback("content/reviews.json")
     .then(function (data) {
       root.textContent = "";
       var items = data.items || [];

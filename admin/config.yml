@@ -27,7 +27,7 @@ site_url: https://mendozaliner.github.io/MarcusFisico
 display_url: https://mendozaliner.github.io/MarcusFisico
 
 media_folder: assets/uploads
-public_folder: /assets/uploads
+public_folder: assets/uploads
 
 collections:
   - name: rankings

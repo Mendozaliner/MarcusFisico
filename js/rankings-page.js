@@ -9,11 +9,37 @@
     return d.innerHTML;
   }
 
-  fetch("content/rankings.json")
-    .then(function (r) {
-      if (!r.ok) throw new Error("bad response");
-      return r.json();
-    })
+  function loadJsonWithFallback(path) {
+    var stamp = Date.now();
+    var urls = [];
+    var normalized = String(path || "").replace(/^\/+/, "");
+    if (!normalized) return Promise.reject(new Error("missing path"));
+
+    urls.push(normalized);
+    urls.push("./" + normalized);
+    urls.push("/" + normalized);
+
+    // GitHub Pages project sites are hosted under /<repo>/.
+    var parts = location.pathname.split("/").filter(Boolean);
+    if (parts.length > 0) {
+      urls.push("/" + parts[0] + "/" + normalized);
+    }
+
+    function tryAt(i) {
+      if (i >= urls.length) return Promise.reject(new Error("not found"));
+      var u = urls[i] + (urls[i].indexOf("?") === -1 ? "?" : "&") + "v=" + stamp;
+      return fetch(u, { cache: "no-store" }).then(function (r) {
+        if (!r.ok) throw new Error("bad response");
+        return r.json();
+      }).catch(function () {
+        return tryAt(i + 1);
+      });
+    }
+
+    return tryAt(0);
+  }
+
+  loadJsonWithFallback("content/rankings.json")
     .then(function (data) {
       var items = (data.items || []).slice().sort(function (a, b) {
         return (Number(b.score) || 0) - (Number(a.score) || 0);
