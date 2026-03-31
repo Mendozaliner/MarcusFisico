@@ -13,7 +13,14 @@
   function clampScore(n) {
     var x = Number(n);
     if (isNaN(x)) return null;
-    return Math.max(1, Math.min(5, Math.round(x)));
+    x = Math.max(0, Math.min(5, x));
+    return Math.round(x * 10) / 10;
+  }
+
+  function formatScoreDisplay(s) {
+    if (s == null) return "—";
+    var t = (Math.round(s * 10) / 10).toFixed(1);
+    return t + "/5";
   }
 
   function averageScores(item) {
@@ -87,6 +94,12 @@
         var inner = document.createElement("div");
         inner.className = "review-card__summary-inner";
 
+        var headerLayout = document.createElement("div");
+        headerLayout.className = "review-card__header-layout";
+
+        var headerMain = document.createElement("div");
+        headerMain.className = "review-card__header-main";
+
         var h2 = document.createElement("h2");
         h2.className = "review-card__title";
         h2.textContent = item.title || "";
@@ -96,37 +109,44 @@
           var subP = document.createElement("p");
           subP.className = "review-card__subhead";
           subP.textContent = subheadText;
-          inner.appendChild(h2);
-          inner.appendChild(subP);
+          headerMain.appendChild(h2);
+          headerMain.appendChild(subP);
         } else {
-          inner.appendChild(h2);
+          headerMain.appendChild(h2);
         }
 
-        var scoresRow = document.createElement("div");
-        scoresRow.className = "review-card__scores-row";
-
-        var quadrant = document.createElement("div");
-        quadrant.className = "review-scores-quadrant";
+        var scoresInline = document.createElement("div");
+        scoresInline.className = "review-scores-inline";
         var labels = [
-          { key: "property", label: "Property" },
           { key: "wine", label: "Wine" },
           { key: "service", label: "Service" },
+          { key: "property", label: "Property" },
           { key: "prices", label: "Prices" }
         ];
-        labels.forEach(function (L) {
+        labels.forEach(function (L, idx) {
           var c = clampScore(item[L.key]);
           var cell = document.createElement("div");
-          cell.className = "review-score-cell";
+          cell.className = "review-score-inline";
           var lb = document.createElement("span");
           lb.className = "review-score-label";
           lb.textContent = L.label;
           var val = document.createElement("span");
           val.className = "review-score-val";
-          val.textContent = c != null ? c + "/5" : "—";
+          val.textContent = formatScoreDisplay(c);
           cell.appendChild(lb);
+          cell.appendChild(document.createTextNode(" "));
           cell.appendChild(val);
-          quadrant.appendChild(cell);
+          scoresInline.appendChild(cell);
+          if (idx < labels.length - 1) {
+            var sep = document.createElement("span");
+            sep.className = "review-score-sep";
+            sep.setAttribute("aria-hidden", "true");
+            sep.textContent = "·";
+            scoresInline.appendChild(sep);
+          }
         });
+
+        headerMain.appendChild(scoresInline);
 
         var overall = document.createElement("div");
         overall.className = "review-overall";
@@ -147,10 +167,10 @@
         overall.appendChild(starsEl);
         overall.appendChild(numEl);
 
-        scoresRow.appendChild(quadrant);
-        scoresRow.appendChild(overall);
+        headerLayout.appendChild(headerMain);
+        headerLayout.appendChild(overall);
 
-        inner.appendChild(scoresRow);
+        inner.appendChild(headerLayout);
         summary.appendChild(inner);
         details.appendChild(summary);
 
