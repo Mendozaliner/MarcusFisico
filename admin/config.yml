@@ -113,20 +113,21 @@ collections:
                 max: 5
                 step: 0.1
               - { label: Body, name: body, widget: text }
-              - label: Photos (up to 3)
-                name: photos
-                widget: list
+              - label: Photo 1
+                name: photo1
+                widget: image
                 required: false
-                summary: "{{fields.image}}"
-                min: 0
-                max: 3
-                hint: "Upload up to 3 photos. Each upload slot is independent."
-                fields:
-                  - label: Image
-                    name: image
-                    widget: image
-                    required: true
-                    hint: "JPEG/PNG/WebP."
+                hint: "Main photo. Use a unique filename to avoid replacement prompts."
+              - label: Photo 2
+                name: photo2
+                widget: image
+                required: false
+                hint: "Second independent photo. Use a different filename from Photo 1."
+              - label: Photo 3
+                name: photo3
+                widget: image
+                required: false
+                hint: "Third independent photo. Use a different filename from Photos 1/2."
               - label: URL slug (optional)
                 name: slug
                 widget: string
