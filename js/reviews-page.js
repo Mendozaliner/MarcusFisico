@@ -90,22 +90,14 @@
 
   function collectPhotos(item) {
     var list = Array.isArray(item.photos) ? item.photos : [];
-    var fromList = list
+    return list
       .map(function (entry) {
         if (entry == null) return "";
         if (typeof entry === "string") return normalizePhotoUrl(entry);
+        if (entry.path) return normalizePhotoUrl(entry.path);
         return normalizePhotoUrl(entry.image);
       })
       .filter(Boolean);
-
-    if (fromList.length) return fromList;
-
-    // Backward compatibility for legacy schema.
-    return [
-      normalizePhotoUrl(item.photo1),
-      normalizePhotoUrl(item.photo2),
-      normalizePhotoUrl(item.photo3)
-    ].filter(Boolean);
   }
 
   function loadJsonWithFallback(path) {

@@ -124,9 +124,9 @@ collections:
                 collapsed: false
                 label_singular: Photo
                 summary: "{{value}}"
-                hint: "Click Add Photo for each image. This list is unlimited and each entry is independent."
+                hint: "Use Choose to select multiple photos in one go (e.g. 3 at once)."
                 field:
-                  label: Image
+                  label: Photo
                   name: image
                   widget: image
                   required: true
