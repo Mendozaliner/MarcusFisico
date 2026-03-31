@@ -1,16 +1,19 @@
-# Uses GitHub login via Netlify’s OAuth proxy — no Netlify Identity / Git Gateway required.
-# Setup: ADMIN-OAUTH.md in the repo root.
+# GitHub Pages + Decap CMS auth via external OAuth provider (recommended: DecapBridge).
+# Setup: ADMIN-GITHUB-PAGES.md in the repo root.
 
 backend:
   name: github
   repo: Mendozaliner/MarcusFisico
   branch: main
-  base_url: https://api.netlify.com
-  # Must be "auth" (→ https://api.netlify.com/auth), not "oauth" — wrong path breaks GitHub login
-  auth_endpoint: auth
+  # Replace with your provider URL from DecapBridge (or self-hosted OAuth service).
+  # Example only:
+  # base_url: https://auth.decapbridge.com
+  # auth_endpoint: /auth
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /auth
 
-site_url: https://reliable-youtiao-2f57d2.netlify.app
-display_url: https://reliable-youtiao-2f57d2.netlify.app
+site_url: https://mendozaliner.github.io/MarcusFisico
+display_url: https://mendozaliner.github.io/MarcusFisico
 
 media_folder: assets/uploads
 public_folder: /assets/uploads
