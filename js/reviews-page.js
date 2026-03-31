@@ -19,7 +19,9 @@
 
   function formatScoreDisplay(s) {
     if (s == null) return "—";
-    return Math.round(s) + "/5";
+    var n = Number(s);
+    if (isNaN(n)) return "—";
+    return n.toFixed(1) + "/5";
   }
 
   function averageScores(item) {
@@ -84,6 +86,26 @@
       return repoBasePath() + "/" + path;
     }
     return path;
+  }
+
+  function collectPhotos(item) {
+    var list = Array.isArray(item.photos) ? item.photos : [];
+    var fromList = list
+      .map(function (entry) {
+        if (entry == null) return "";
+        if (typeof entry === "string") return normalizePhotoUrl(entry);
+        return normalizePhotoUrl(entry.image);
+      })
+      .filter(Boolean);
+
+    if (fromList.length) return fromList.slice(0, 3);
+
+    // Backward compatibility for legacy schema.
+    return [
+      normalizePhotoUrl(item.photo1),
+      normalizePhotoUrl(item.photo2),
+      normalizePhotoUrl(item.photo3)
+    ].filter(Boolean);
   }
 
   function loadJsonWithFallback(path) {
@@ -240,11 +262,7 @@
         bodyP.textContent = item.body || "";
         bodyWrap.appendChild(bodyP);
 
-        var photos = [
-          normalizePhotoUrl(item.photo1),
-          normalizePhotoUrl(item.photo2),
-          normalizePhotoUrl(item.photo3)
-        ].filter(Boolean);
+        var photos = collectPhotos(item);
 
         if (photos.length) {
           var gal = document.createElement("div");
