@@ -117,16 +117,25 @@ collections:
                 name: photos
                 widget: list
                 required: false
-                summary: "{{fields.image}}"
-                hint: "Add as many photos as you want. Drag/drop, choose files, or paste into the media library dialog."
-                fields:
-                  - label: Image
-                    name: image
-                    widget: image
-                    required: true
-                    media_library:
-                      config:
-                        multiple: true
+                default: []
+                allow_add: true
+                allow_remove: true
+                allow_reorder: true
+                collapsed: false
+                label_singular: Photo
+                summary: "{{value}}"
+                hint: "Click Add Photo for each image. This list is unlimited and each entry is independent."
+                field:
+                  label: Image
+                  name: image
+                  widget: image
+                  required: true
+                  choose_url: false
+                  media_folder: /assets/uploads/reviews
+                  public_folder: assets/uploads/reviews
+                  media_library:
+                    config:
+                      multiple: true
               - label: URL slug (optional)
                 name: slug
                 widget: string
