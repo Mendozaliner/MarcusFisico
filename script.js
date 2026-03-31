@@ -10,17 +10,12 @@ const CONTACT_EMAIL = "marcusfisico02@gmail.com";
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       const name = (form.querySelector('[name="name"]') || {}).value?.trim() || "";
-      const email = (form.querySelector('[name="email"]') || {}).value?.trim() || "";
       const message = (form.querySelector('[name="message"]') || {}).value?.trim() || "";
 
       const subject = encodeURIComponent(
         name ? `Website message from ${name}` : "Website contact form"
       );
-      const body = encodeURIComponent(
-        [message, "", email ? `Reply to: ${email}` : "", name ? `Name: ${name}` : ""]
-          .filter(Boolean)
-          .join("\n")
-      );
+      const body = encodeURIComponent(message);
 
       window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
     });

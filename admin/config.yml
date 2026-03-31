@@ -50,12 +50,63 @@ collections:
             widget: list
             summary: "{{fields.title}}"
             fields:
-              - { label: Title, name: title, widget: string }
-              - label: Meta line
+              - label: Winery name
+                name: title
+                widget: string
+              - label: Region
+                name: region
+                widget: string
+                hint: "e.g. Okanagan, Naramata"
+              - label: Month
+                name: month
+                widget: string
+                hint: "e.g. March"
+              - label: Year
+                name: year
+                widget: string
+                hint: "e.g. 2026"
+              - label: Meta line (legacy, optional)
                 name: meta
                 widget: string
-                hint: "e.g. Okanagan · March 2026"
+                required: false
+                hint: "Used in header only if Region, Month, and Year are all empty"
+              - label: Property
+                name: property
+                widget: number
+                value_type: int
+                min: 1
+                max: 5
+              - label: Wine
+                name: wine
+                widget: number
+                value_type: int
+                min: 1
+                max: 5
+              - label: Service
+                name: service
+                widget: number
+                value_type: int
+                min: 1
+                max: 5
+              - label: Prices
+                name: prices
+                widget: number
+                value_type: int
+                min: 1
+                max: 5
               - { label: Body, name: body, widget: text }
+              - label: Photo 1 (shown when review is expanded)
+                name: photo1
+                widget: image
+                required: false
+              - label: Photo 2
+                name: photo2
+                widget: image
+                required: false
+              - label: Photo 3
+                name: photo3
+                widget: image
+                required: false
               - label: URL slug (optional)
                 name: slug
                 widget: string
