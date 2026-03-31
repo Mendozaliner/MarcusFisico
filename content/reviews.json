@@ -1,20 +1,20 @@
 {
   "items": [
     {
-      "title": "CheckMate Artisanal Winery",
-      "region": "Okanagan",
+      "photo2": "/assets/uploads/img_8330.heic",
       "month": "September",
-      "year": "2025",
-      "meta": "Okanagan · September 2025",
-      "slug": "checkmate",
-      "property": 4,
-      "wine": 4,
-      "service": 5,
-      "prices": 4,
+      "photo3": "/assets/uploads/img_8334.heic",
       "body": "Founded in 2013 by Anthony von Mandl under the IWBC, CheckMate is built around an ultra-premium focus on Chardonnay and Merlot, showcasing what the Okanagan can really do. The whole place leans into that new-world luxury feel while still staying true to the terroir. The property itself is insane—everything is built around a chess theme, and when you’re there you can really see it all come together in a way that matches the precision of the wines.\n\nOn the Merlot side, the South Okanagan—especially Osoyoos at the northern tip of the Sonoran Desert—has the heat needed to fully ripen the grapes and build structure. Compared to Ontario, I find BC Merlot shows more depth and structure, likely because of that extra heat.\n\nI started with the 2021 Opening Gambit (97 points from John Schreiner). It had great length and structure, but felt a bit dry for me right now—definitely something that should come around with a bit of age. Coming from the Osoyoos East Bench, the gravel and sandy soils show through with ripe fruit, cocoa, and spice.\n\nThe 2021 Black Rook from Black Sage Bench stood out more to me. From one of the hottest sites in the country, it was more structured but also more complex, leaning into earthy, tobacco notes alongside the fruit. It was already smooth but clearly built to age.\n\nThe Chardonnay was the highlight. The 2021 Little Pawn is the best Canadian Chardonnay I’ve had so far. It’s super unique, with a vibrant nose of key lime, lychee, sage, and anise, followed by lemon curd, hazelnut, and apricot on the palate. It’s fresh and lively but still has real texture from lees aging, giving it that premium Burgundy-style feel with Okanagan ripeness.\n\nThe 2022 Queen Taken followed a similar profile but felt a bit more polished and approachable. Bright citrus and stone fruit up front, with a full, textured palate that stays clean thanks to the acidity. Like the Little Pawn, it’s rich but never heavy.\n\nOverall, it’s definitely worth going. The property is stunning, the chess theme actually ties everything together, and the service was unreal—Amanda and Sean were extremely knowledgeable and really made the entire experience better. Everything felt intentional from start to finish, and you can tell a lot of thought went into both the wines and the experience.\n\nThe only downside is the price—it’s pretty steep, especially for casual drinking. You can find high-end Chardonnay from Burgundy at a similar or even lower price, which says a lot. That said, you’re paying for the full experience here—the setting, the service, and the level of detail in the wines, not just what’s in the glass.",
-      "photo1": "",
-      "photo2": "",
-      "photo3": ""
+      "meta": "Okanagan · September 2025",
+      "wine": 4,
+      "prices": 4,
+      "slug": "checkmate",
+      "region": "Okanagan",
+      "property": 4,
+      "service": 5,
+      "title": "CheckMate Artisanal Winery",
+      "year": "2025",
+      "photo1": "/assets/uploads/img_3765.jpeg"
     }
   ]
 }
