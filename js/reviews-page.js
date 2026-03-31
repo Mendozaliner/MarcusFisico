@@ -32,7 +32,7 @@
   }
 
   function formatAvg(avg) {
-    return String(Math.round(avg));
+    return (Math.round(avg * 10) / 10).toFixed(1);
   }
 
   function bigStars(avg) {
@@ -167,9 +167,10 @@
         numEl.className = "review-overall-num";
         if (avg != null) {
           starsEl.textContent = bigStars(avg);
+          var roundedAvg = Math.round(avg * 10) / 10;
           starsEl.setAttribute(
             "aria-label",
-            "Overall " + Math.round(avg) + " out of 5"
+            "Overall " + roundedAvg.toFixed(1) + " out of 5"
           );
           numEl.textContent = formatAvg(avg);
         } else {

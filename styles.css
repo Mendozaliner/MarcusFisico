@@ -634,7 +634,8 @@ details.review-card {
 }
 
 details.review-card:first-of-type {
-  padding-top: 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 details.review-card:last-of-type {
