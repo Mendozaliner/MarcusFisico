@@ -17,6 +17,7 @@
       "year": "2025"
     },
     {
+      "month": "June",
       "photos": [
         [
           "assets/uploads/reviews/img_6332.jpeg"
@@ -25,11 +26,14 @@
           "assets/uploads/reviews/img_6341.jpeg"
         ]
       ],
-      "title": "Burrowing Owl Estate Winery ",
+      "body": "jsadfljaslfj;lasjdflasjdflkjasldkfjlsa",
+      "wine": 3.5,
+      "prices": 5,
       "region": "Oliver",
-      "month": "June",
-      "year": "2025",
-      "body": "jsadfljaslfj;lasjdflasjdflkjasldkfjlsa"
+      "property": 4.9,
+      "service": 2.5,
+      "title": "Burrowing Owl Estate Winery ",
+      "year": "2025"
     }
   ]
 }
